@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CHomework_StudentManagementDoc
+LastClass=CHomework_StudentManagementView
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
@@ -34,13 +34,16 @@ ImplementationFile=Homework_StudentManagementDoc.cpp
 Filter=N
 BaseClass=CDocument
 VirtualFilter=DC
-LastObject=ID_STUDENT_ADD
+LastObject=CHomework_StudentManagementDoc
 
 [CLS:CHomework_StudentManagementView]
 Type=0
 HeaderFile=Homework_StudentManagementView.h
 ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
+BaseClass=CListView
+VirtualFilter=VWC
+LastObject=ID_STUDENT_ADD
 
 
 [CLS:CMainFrame]

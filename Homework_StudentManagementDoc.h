@@ -10,47 +10,6 @@
 #endif // _MSC_VER > 1000
 
 
-class CHomework_StudentManagementDoc : public CDocument
-{
-protected: // create from serialization only
-	CHomework_StudentManagementDoc();
-	DECLARE_DYNCREATE(CHomework_StudentManagementDoc)
-
-// Attributes
-public:
-	CObList m_stuObList;
-
-// Operations
-public:
-
-// Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CHomework_StudentManagementDoc)
-	public:
-	virtual BOOL OnNewDocument();
-	virtual void Serialize(CArchive& ar);
-	//}}AFX_VIRTUAL
-
-// Implementation
-public:
-	virtual ~CHomework_StudentManagementDoc();
-#ifdef _DEBUG
-	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext& dc) const;
-#endif
-
-protected:
-
-// Generated message map functions
-protected:
-	//{{AFX_MSG(CHomework_StudentManagementDoc)
-	afx_msg void OnStudentAdd();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
-};
-
-/////////////////////////////////////////////////////////////////////////////
-
 
 /************************************************************************/
 /*   student类                                                          */
@@ -74,6 +33,8 @@ public:
 //操作函数
 public:
 	void Display();
+
+	void Serialize(CArchive& ar);
 
 
 //获取成员变量的方法
@@ -142,6 +103,61 @@ private:
 	float fScoreAverage;
 
 };
+
+
+
+
+
+
+
+
+
+
+
+class CHomework_StudentManagementDoc : public CDocument
+{
+protected: // create from serialization only
+	CHomework_StudentManagementDoc();
+	DECLARE_DYNCREATE(CHomework_StudentManagementDoc)
+
+// Attributes
+public:
+	CObList m_stuObList;
+
+// Operations
+public:
+	int GetAllStuNum(void);
+
+	CStudent* GetStudentAt(int index);
+
+// Overrides
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(CHomework_StudentManagementDoc)
+	public:
+	virtual BOOL OnNewDocument();
+	virtual void Serialize(CArchive& ar);
+	//}}AFX_VIRTUAL
+
+// Implementation
+public:
+	virtual ~CHomework_StudentManagementDoc();
+#ifdef _DEBUG
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext& dc) const;
+#endif
+
+protected:
+
+// Generated message map functions
+protected:
+	//{{AFX_MSG(CHomework_StudentManagementDoc)
+	afx_msg void OnStudentAdd();
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+/////////////////////////////////////////////////////////////////////////////
+
 
 
 

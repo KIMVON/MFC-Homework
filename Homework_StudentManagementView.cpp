@@ -7,6 +7,8 @@
 #include "Homework_StudentManagementDoc.h"
 #include "Homework_StudentManagementView.h"
 
+#include "AddStudentDlg.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -20,8 +22,7 @@ IMPLEMENT_DYNCREATE(CHomework_StudentManagementView, CListView)
 
 BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	//{{AFX_MSG_MAP(CHomework_StudentManagementView)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
+	ON_COMMAND(ID_STUDENT_ADD, OnStudentAdd)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -146,3 +147,63 @@ CHomework_StudentManagementDoc* CHomework_StudentManagementView::GetDocument() /
 
 /////////////////////////////////////////////////////////////////////////////
 // CHomework_StudentManagementView message handlers
+
+void CHomework_StudentManagementView::UpdateListItemData()
+{
+	CListCtrl& m_ListCtrl = GetListCtrl();
+	m_ListCtrl.DeleteAllItems();
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	POSITION pos = doc->m_stuObList.GetHeadPosition();
+	int nIndex;
+
+	//while (pos!=NULL) {
+	for (int nItem = 0 ; nItem <doc->m_stuObList.GetCount() ; nItem++ ) {
+	
+		CStudent* stu =(CStudent*)(doc->m_stuObList).GetAt(pos);
+		
+		nIndex = m_ListCtrl.InsertItem(nItem , stu->getNo());
+
+//		m_ListCtrl.SetItemText(nIndex , 1 , stu->getNo());
+		m_ListCtrl.SetItemText(nIndex , 1 , stu->getName());
+		m_ListCtrl.SetItemText(nIndex , 2 , stu->getSex());
+		m_ListCtrl.SetItemText(nIndex , 3 , stu->getBirth());
+		m_ListCtrl.SetItemText(nIndex , 4 , stu->getCountry());
+		m_ListCtrl.SetItemText(nIndex , 5 , stu->getNation());
+		m_ListCtrl.SetItemText(nIndex , 6 , stu->getAddress());
+		m_ListCtrl.SetItemText(nIndex , 7 , CString(stu->getChineseScore()));
+		m_ListCtrl.SetItemText(nIndex , 8 , CString(stu->getMathScore()));
+		m_ListCtrl.SetItemText(nIndex , 9 , CString(stu->getEnglishScore()));
+		m_ListCtrl.SetItemText(nIndex , 10 , CString(stu->getPhysicsScore()));
+		m_ListCtrl.SetItemText(nIndex , 11 , CString(stu->getChemistryScore()));
+		m_ListCtrl.SetItemText(nIndex , 12 , CString(stu->getBiologyScore()));
+		m_ListCtrl.SetItemText(nIndex , 13 , CString(stu->getAverageScore()));
+	
+	}
+}
+
+void CHomework_StudentManagementView::OnStudentAdd() 
+{
+	// TODO: Add your command handler code here
+
+	CAddStudentDlg dlg;
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+ 
+	if (IDOK == dlg.DoModal()) {
+		//添加学生信息
+		CStudent *pStudent = new CStudent(dlg.m_strName , dlg.m_strNo , dlg.m_strSex , dlg.m_strBirth , dlg.m_strCountry , dlg.m_strNation , dlg.m_strAddress , 
+			dlg.m_fScoreChinese , dlg.m_fScoreMath , dlg.m_fScoreEnglish , dlg.m_fScorePhysics , dlg.m_fScoreChemistry , dlg.m_fScoreBiology);
+		
+		doc->m_stuObList.AddTail(pStudent);
+
+		
+//		SetModifiedFlag();
+
+//		UpdateAllViews(NULL);
+
+
+		UpdateListItemData();
+	}
+	
+}

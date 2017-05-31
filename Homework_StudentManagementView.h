@@ -49,6 +49,7 @@ public:
 
 // Implementation
 public:
+	void UpdateListItemData();
 	virtual ~CHomework_StudentManagementView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -60,8 +61,7 @@ protected:
 // Generated message map functions
 protected:
 	//{{AFX_MSG(CHomework_StudentManagementView)
-		// NOTE - the ClassWizard will add and remove member functions here.
-		//    DO NOT EDIT what you see in these blocks of generated code !
+	afx_msg void OnStudentAdd();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

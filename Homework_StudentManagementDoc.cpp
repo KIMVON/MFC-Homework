@@ -6,6 +6,8 @@
 
 #include "Homework_StudentManagementDoc.h"
 
+#include "Homework_StudentManagementView.h"
+
 #include "AddStudentDlg.h"
 
 #ifdef _DEBUG
@@ -59,10 +61,12 @@ void CHomework_StudentManagementDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
+		m_stuObList.Serialize(ar);
 	}
 	else
 	{
 		// TODO: add loading code here
+		m_stuObList.Serialize(ar);
 	}
 }
 
@@ -113,6 +117,22 @@ CStudent::CStudent(CString name , CString no , CString sex , CString birth , CSt
 
 //序列化
 IMPLEMENT_SERIAL(CStudent , CObject , 1);
+
+
+void CStudent::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring()) {
+		ar<<strNo<<strName<<strSex<<strBirth<<strCountry<<strNation<<strAddress<<fScoreChinese<<fScoreMath<<fScoreEnglish<<fScorePhysics<<fScoreChemistry<<fScoreBiology<<fScoreAverage;
+	}else{
+		ar>>strNo>>strName>>strSex>>strBirth>>strCountry>>strNation>>strAddress>>fScoreChinese>>fScoreMath>>fScoreEnglish>>fScorePhysics>>fScoreChemistry>>fScoreBiology>>fScoreAverage;
+	}
+}
+
+
+
+void CStudent::Display(){
+
+}
 
 
 /************************************************************************/
@@ -228,7 +248,8 @@ void CHomework_StudentManagementDoc::OnStudentAdd()
 {
 	// TODO: Add your command handler code here
 	CAddStudentDlg dlg;
-
+ 
+/*
 	if (IDOK == dlg.DoModal()) {
 		//添加学生信息
 		CStudent *pStudent = new CStudent(dlg.m_strName , dlg.m_strNo , dlg.m_strSex , dlg.m_strBirth , dlg.m_strCountry , dlg.m_strNation , dlg.m_strAddress , 
@@ -241,5 +262,9 @@ void CHomework_StudentManagementDoc::OnStudentAdd()
 
 		UpdateAllViews(NULL);
 
+
+		UpdateListItemData(m_stuObList);
 	}
+
+  */
 }

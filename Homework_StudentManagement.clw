@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CAddStudentDlg
+LastClass=CHomework_StudentManagementDoc
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
@@ -15,8 +15,8 @@ Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
 ResourceCount=3
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+Resource1=IDD_ABOUTBOX
+Resource2=IDR_MAINFRAME
 Class5=CAboutDlg
 Class6=CAddStudentDlg
 Resource3=IDD_DIALOG1
@@ -32,6 +32,9 @@ Type=0
 HeaderFile=Homework_StudentManagementDoc.h
 ImplementationFile=Homework_StudentManagementDoc.cpp
 Filter=N
+BaseClass=CDocument
+VirtualFilter=DC
+LastObject=ID_STUDENT_ADD
 
 [CLS:CHomework_StudentManagementView]
 Type=0

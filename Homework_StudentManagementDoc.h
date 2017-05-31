@@ -18,6 +18,7 @@ protected: // create from serialization only
 
 // Attributes
 public:
+	CObList m_stuObList;
 
 // Operations
 public:
@@ -43,13 +44,108 @@ protected:
 // Generated message map functions
 protected:
 	//{{AFX_MSG(CHomework_StudentManagementDoc)
-		// NOTE - the ClassWizard will add and remove member functions here.
-		//    DO NOT EDIT what you see in these blocks of generated code !
+	afx_msg void OnStudentAdd();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////
+
+
+/************************************************************************/
+/*   student类                                                          */
+/************************************************************************/
+
+class CStudent:public CObject
+{
+
+	//序列化
+	DECLARE_SERIAL(CStudent);
+
+//构造函数
+public:
+	CStudent(){
+
+	};
+
+	CStudent(CString name , CString no , CString sex , CString birth , CString country , CString nation , CString address , float chinese , float math , float english , float physics , float chemistry , float biology);
+
+
+//操作函数
+public:
+	void Display();
+
+
+//获取成员变量的方法
+public:
+	CString getName();
+	void setName(CString name);
+
+	CString getNo();
+	void setNo(CString no);
+
+	CString getSex();
+	void setSex(CString sex);
+
+	CString getBirth();
+	void setBirth(CString birth);
+
+	CString getCountry();
+	void setCountry(CString country);
+
+	CString getNation();
+	void setNation(CString nation);
+	
+	CString getAddress();
+	void setAddress(CString address);
+
+	//成绩
+	float getChineseScore();
+	void setChineseScore(float chineseScore);
+
+	float getMathScore();
+	void setMathScore(float mathScore);
+
+	float getEnglishScore();
+	void setEnglishScore(float englishScore);
+
+	float getPhysicsScore();
+	void setPhysicsScore(float physicsScore);
+
+	float getChemistryScore();
+	void setChemistryScore(float chemistryScore);
+
+	float getBiologyScore();
+	void setBiologyScore(float biologyScore);
+
+	//获得平均成绩
+	float getAverageScore();
+protected:
+
+//成员变量
+private:
+	CString strName;
+	CString strNo;
+	CString strSex;
+	CString strBirth;
+	CString strCountry;
+	CString strNation;
+	CString strAddress;
+	
+	float fScoreChinese;
+	float fScoreMath;
+	float fScoreEnglish;
+	float fScorePhysics;
+	float fScoreChemistry;
+	float fScoreBiology;
+	
+	float fScoreAverage;
+
+};
+
+
+
+
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

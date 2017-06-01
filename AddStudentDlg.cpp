@@ -238,3 +238,11 @@ void CAddStudentDlg::OnDeltaposSpin6(NMHDR* pNMHDR, LRESULT* pResult)
 	
 	*pResult = 0;
 }
+
+void CAddStudentDlg::OnOK() 
+{
+	// TODO: Add extra validation here
+	UpdateData(TRUE);
+
+	CDialog::OnOK();
+}

@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CHomework_StudentManagementView
+LastClass=CAddStudentDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
@@ -175,6 +175,6 @@ HeaderFile=AddStudentDlg.h
 ImplementationFile=AddStudentDlg.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_SPIN5
+LastObject=IDOK
 VirtualFilter=dWC
 

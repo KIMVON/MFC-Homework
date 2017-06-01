@@ -237,6 +237,7 @@ void CHomework_StudentManagementView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 	// TODO: Add your control notification handler code here
 	CAddStudentDlg *pDlg = new CAddStudentDlg;
 
+	CHomework_StudentManagementDoc* doc = GetDocument();
 //	CAddStudentDlg dlg;
 
 	LPNMITEMACTIVATE lpItem = (LPNMITEMACTIVATE)pNMHDR;
@@ -261,8 +262,21 @@ void CHomework_StudentManagementView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 		pDlg->m_fScoreChemistry	= (float)atof(m_ListCtrl.GetItemText(nIndex , 11));
 		pDlg->m_fScoreBiology	= (float)atof(m_ListCtrl.GetItemText(nIndex , 12));
 		
-		pDlg->Create(IDD_DIALOG1);
-		pDlg->ShowWindow(SW_NORMAL);
+//		pDlg->Create(IDD_DIALOG1);
+//		pDlg->ShowWindow(SW_NORMAL);
+		//更新数据
+		if(IDOK==pDlg->DoModal()){//pDlg->DoModal()实例化,如果点击了IDOK就执行
+			
+			POSITION pos = doc->m_stuObList.FindIndex(nIndex);
+			
+			CStudent *pStu = new CStudent(pDlg->m_strName , pDlg->m_strNo , pDlg->m_strSex ,pDlg->m_strBirth , pDlg->m_strCountry , pDlg->m_strNation , pDlg->m_strAddress , 
+			pDlg->m_fScoreChinese , pDlg->m_fScoreMath , pDlg->m_fScoreEnglish , pDlg->m_fScorePhysics , pDlg->m_fScoreChemistry , pDlg->m_fScoreBiology);
+		
+			doc->m_stuObList.SetAt(pos , pStu);
+			
+
+			UpdateListItemData();
+		}
 
 		UpdateData(FALSE);
 

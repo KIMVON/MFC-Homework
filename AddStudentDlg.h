@@ -60,6 +60,7 @@ protected:
 	afx_msg void OnDeltaposSpin4(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDeltaposSpin5(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDeltaposSpin6(NMHDR* pNMHDR, LRESULT* pResult);
+	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

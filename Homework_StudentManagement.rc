@@ -179,8 +179,7 @@ CAPTION "关于 Homework_StudentManagement"
 FONT 9, "宋体"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "Homework_StudentManagement 1.0 版",IDC_STATIC,40,10,119,
-                    8,SS_NOPREFIX
+    LTEXT           "学生管理系统 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "版权所有 (C) 2017",IDC_STATIC,40,25,119,8
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
 END
@@ -256,8 +255,9 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "080404B0"
+        BLOCK "080404b0"
         BEGIN
+            VALUE "Comments", "\0"
             VALUE "CompanyName", "\0"
             VALUE "FileDescription", "Homework_StudentManagement Microsoft 基础类应用程序\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
@@ -265,8 +265,10 @@ BEGIN
             VALUE "LegalCopyright", "版权所有 (C) 2017\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "Homework_StudentManagement.EXE\0"
+            VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "Homework_StudentManagement 应用程序\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
         END
     END
     BLOCK "VarFileInfo"

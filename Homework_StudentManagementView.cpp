@@ -160,11 +160,13 @@ void CHomework_StudentManagementView::UpdateListItemData()
 	m_ListCtrl.DeleteAllItems();
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
-	POSITION pos = doc->m_stuObList.GetHeadPosition();
+	
 	int nIndex;
 
 	//while (pos!=NULL) {
 	for (int nItem = 0 ; nItem <doc->m_stuObList.GetCount() ; nItem++ ) {
+
+		POSITION pos = doc->m_stuObList.FindIndex(nItem);
 	
 		CStudent* stu =(CStudent*)(doc->m_stuObList).GetAt(pos);
 		

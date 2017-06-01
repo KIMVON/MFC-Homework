@@ -24,6 +24,8 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	//{{AFX_MSG_MAP(CHomework_StudentManagementView)
 	ON_COMMAND(ID_STUDENT_ADD, OnStudentAdd)
 	ON_NOTIFY_REFLECT(NM_DBLCLK, OnDblclk)
+	ON_NOTIFY_REFLECT(NM_CLICK, OnClick)
+	ON_COMMAND(ID_STUDENT_DEL, OnStudentDel)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -66,6 +68,8 @@ void CHomework_StudentManagementView::OnInitialUpdate()
 {
 	CListView::OnInitialUpdate();
 
+	//初始化nIndex;
+	nIndex = -1;
 
 	// TODO: You may populate your ListView with items by directly accessing
 	//  its list control through a call to GetListCtrl().
@@ -284,4 +288,39 @@ void CHomework_StudentManagementView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 
 	
 	*pResult = 0;
+}
+
+void CHomework_StudentManagementView::OnClick(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Add your control notification handler code here
+	LPNMITEMACTIVATE lpItem = (LPNMITEMACTIVATE)pNMHDR;
+	nIndex = lpItem->iItem;
+	
+	*pResult = 0;
+}
+
+
+void CHomework_StudentManagementView::OnStudentDel() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	if (nIndex == -1) {
+		MessageBox("不能删除，没有选定！！");
+	}
+
+
+	if (nIndex>=0) {
+		POSITION pos = doc->m_stuObList.FindIndex(nIndex);
+
+		doc->m_stuObList.RemoveAt(pos);
+
+		UpdateListItemData();
+
+		//没有选定，设置为-1
+		nIndex=-1;
+	}
+
+
+	
 }

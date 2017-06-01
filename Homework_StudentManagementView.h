@@ -49,6 +49,7 @@ public:
 
 // Implementation
 public:
+	int nIndex; //表示选中的列表项的索引
 	void UpdateListItemData();
 	virtual ~CHomework_StudentManagementView();
 #ifdef _DEBUG
@@ -63,6 +64,8 @@ protected:
 	//{{AFX_MSG(CHomework_StudentManagementView)
 	afx_msg void OnStudentAdd();
 	afx_msg void OnDblclk(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnClick(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnStudentDel();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

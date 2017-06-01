@@ -6,7 +6,7 @@
 --------------------Configuration: Homework_StudentManagement - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSPB433.tmp" with contents
+Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP2943.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Homework_StudentManagement.pdb" /debug /machine:I386 /out:"Debug/Homework_StudentManagement.exe" /pdbtype:sept 
 ".\Debug\AddStudentDlg.obj"
@@ -17,7 +17,7 @@ Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSPB433.tmp" with con
 ".\Debug\StdAfx.obj"
 ".\Debug\Homework_StudentManagement.res"
 ]
-Creating command line "link.exe @C:\Users\79069\AppData\Local\Temp\RSPB433.tmp"
+Creating command line "link.exe @C:\Users\79069\AppData\Local\Temp\RSP2943.tmp"
 <h3>Output Window</h3>
 Linking...
 

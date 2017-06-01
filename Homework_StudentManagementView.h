@@ -62,6 +62,7 @@ protected:
 protected:
 	//{{AFX_MSG(CHomework_StudentManagementView)
 	afx_msg void OnStudentAdd();
+	afx_msg void OnDblclk(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

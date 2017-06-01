@@ -23,6 +23,7 @@ IMPLEMENT_DYNCREATE(CHomework_StudentManagementView, CListView)
 BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	//{{AFX_MSG_MAP(CHomework_StudentManagementView)
 	ON_COMMAND(ID_STUDENT_ADD, OnStudentAdd)
+	ON_NOTIFY_REFLECT(NM_DBLCLK, OnDblclk)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -164,6 +165,9 @@ void CHomework_StudentManagementView::UpdateListItemData()
 		
 		nIndex = m_ListCtrl.InsertItem(nItem , stu->getNo());
 
+		CString str;
+		
+
 //		m_ListCtrl.SetItemText(nIndex , 1 , stu->getNo());
 		m_ListCtrl.SetItemText(nIndex , 1 , stu->getName());
 		m_ListCtrl.SetItemText(nIndex , 2 , stu->getSex());
@@ -171,13 +175,33 @@ void CHomework_StudentManagementView::UpdateListItemData()
 		m_ListCtrl.SetItemText(nIndex , 4 , stu->getCountry());
 		m_ListCtrl.SetItemText(nIndex , 5 , stu->getNation());
 		m_ListCtrl.SetItemText(nIndex , 6 , stu->getAddress());
-		m_ListCtrl.SetItemText(nIndex , 7 , CString(stu->getChineseScore()));
-		m_ListCtrl.SetItemText(nIndex , 8 , CString(stu->getMathScore()));
-		m_ListCtrl.SetItemText(nIndex , 9 , CString(stu->getEnglishScore()));
-		m_ListCtrl.SetItemText(nIndex , 10 , CString(stu->getPhysicsScore()));
-		m_ListCtrl.SetItemText(nIndex , 11 , CString(stu->getChemistryScore()));
-		m_ListCtrl.SetItemText(nIndex , 12 , CString(stu->getBiologyScore()));
-		m_ListCtrl.SetItemText(nIndex , 13 , CString(stu->getAverageScore()));
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getChineseScore());
+		m_ListCtrl.SetItemText(nIndex , 7 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getMathScore());
+		m_ListCtrl.SetItemText(nIndex , 8 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getEnglishScore());
+		m_ListCtrl.SetItemText(nIndex , 9 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getPhysicsScore());
+		m_ListCtrl.SetItemText(nIndex , 10 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getChemistryScore());
+		m_ListCtrl.SetItemText(nIndex , 11 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getBiologyScore());
+		m_ListCtrl.SetItemText(nIndex , 12 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getAverageScore());
+		m_ListCtrl.SetItemText(nIndex , 13 , str);
 	
 	}
 }
@@ -206,4 +230,44 @@ void CHomework_StudentManagementView::OnStudentAdd()
 		UpdateListItemData();
 	}
 	
+}
+
+void CHomework_StudentManagementView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Add your control notification handler code here
+	CAddStudentDlg *pDlg = new CAddStudentDlg;
+
+//	CAddStudentDlg dlg;
+
+	LPNMITEMACTIVATE lpItem = (LPNMITEMACTIVATE)pNMHDR;
+	int nIndex = lpItem->iItem;
+
+	if (nIndex>=0) {
+		CListCtrl& m_ListCtrl = GetListCtrl();
+
+		//双击显示数据到对话框
+		pDlg->m_strNo		= m_ListCtrl.GetItemText(nIndex , 0);
+		pDlg->m_strName		= m_ListCtrl.GetItemText(nIndex , 1);
+		pDlg->m_strSex		= m_ListCtrl.GetItemText(nIndex , 2);
+		pDlg->m_strBirth	= m_ListCtrl.GetItemText(nIndex , 3);
+		pDlg->m_strCountry	= m_ListCtrl.GetItemText(nIndex , 4);
+		pDlg->m_strNation	= m_ListCtrl.GetItemText(nIndex , 5);
+		pDlg->m_strAddress	= m_ListCtrl.GetItemText(nIndex , 6);
+		
+		pDlg->m_fScoreChinese	= (float)atof(m_ListCtrl.GetItemText(nIndex , 7));
+		pDlg->m_fScoreMath		= (float)atof(m_ListCtrl.GetItemText(nIndex , 8));
+		pDlg->m_fScoreEnglish	= (float)atof(m_ListCtrl.GetItemText(nIndex , 9));
+		pDlg->m_fScorePhysics	= (float)atof(m_ListCtrl.GetItemText(nIndex , 10));
+		pDlg->m_fScoreChemistry	= (float)atof(m_ListCtrl.GetItemText(nIndex , 11));
+		pDlg->m_fScoreBiology	= (float)atof(m_ListCtrl.GetItemText(nIndex , 12));
+		
+		pDlg->Create(IDD_DIALOG1);
+		pDlg->ShowWindow(SW_NORMAL);
+
+		UpdateData(FALSE);
+
+	}
+
+	
+	*pResult = 0;
 }

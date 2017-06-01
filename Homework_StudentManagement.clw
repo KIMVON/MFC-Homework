@@ -15,11 +15,11 @@ Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
 ResourceCount=3
-Resource1=IDR_MAINFRAME
+Resource1=IDD_DIALOG1
 Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDD_DIALOG1
+Resource3=IDR_MAINFRAME
 
 [CLS:CHomework_StudentManagementApp]
 Type=0
@@ -93,8 +93,10 @@ Command13=ID_EDIT_PASTE
 Command14=ID_VIEW_TOOLBAR
 Command15=ID_VIEW_STATUS_BAR
 Command16=ID_STUDENT_ADD
-Command17=ID_APP_ABOUT
-CommandCount=17
+Command17=ID_STUDENT_AMEND
+Command18=ID_STUDENT_DEL
+Command19=ID_APP_ABOUT
+CommandCount=19
 
 [ACL:IDR_MAINFRAME]
 Type=1

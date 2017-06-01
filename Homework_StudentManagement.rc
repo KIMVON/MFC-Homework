@@ -136,6 +136,8 @@ BEGIN
     POPUP "学生信息管理"
     BEGIN
         MENUITEM "添加学生信息",                ID_STUDENT_ADD
+        MENUITEM "修改学生信息",                ID_STUDENT_AMEND
+        MENUITEM "删除学生信息",                ID_STUDENT_DEL
     END
     POPUP "帮助(&H)"
     BEGIN

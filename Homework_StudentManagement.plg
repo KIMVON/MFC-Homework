@@ -6,15 +6,13 @@
 --------------------Configuration: Homework_StudentManagement - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP68A2.tmp" with contents
+Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP2D7A.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Homework_StudentManagement.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"C:\Users\79069\Desktop\C++实验\Homework_StudentManagement\Homework_StudentManagement.cpp"
-"C:\Users\79069\Desktop\C++实验\Homework_StudentManagement\Homework_StudentManagementDoc.cpp"
 "C:\Users\79069\Desktop\C++实验\Homework_StudentManagement\Homework_StudentManagementView.cpp"
 ]
-Creating command line "cl.exe @C:\Users\79069\AppData\Local\Temp\RSP68A2.tmp" 
-Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP68A3.tmp" with contents
+Creating command line "cl.exe @C:\Users\79069\AppData\Local\Temp\RSP2D7A.tmp" 
+Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP2D7B.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Homework_StudentManagement.pdb" /debug /machine:I386 /out:"Debug/Homework_StudentManagement.exe" /pdbtype:sept 
 ".\Debug\AddStudentDlg.obj"
@@ -25,13 +23,9 @@ Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP68A3.tmp" with con
 ".\Debug\StdAfx.obj"
 ".\Debug\Homework_StudentManagement.res"
 ]
-Creating command line "link.exe @C:\Users\79069\AppData\Local\Temp\RSP68A3.tmp"
+Creating command line "link.exe @C:\Users\79069\AppData\Local\Temp\RSP2D7B.tmp"
 <h3>Output Window</h3>
 Compiling...
-Homework_StudentManagement.cpp
-Generating Code...
-Skipping... (no relevant changes detected)
-Homework_StudentManagementDoc.cpp
 Homework_StudentManagementView.cpp
 Linking...
 

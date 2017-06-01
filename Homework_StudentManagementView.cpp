@@ -26,6 +26,7 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_NOTIFY_REFLECT(NM_DBLCLK, OnDblclk)
 	ON_NOTIFY_REFLECT(NM_CLICK, OnClick)
 	ON_COMMAND(ID_STUDENT_DEL, OnStudentDel)
+	ON_COMMAND(ID_STUDENT_AMEND, OnStudentAmend)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -321,6 +322,57 @@ void CHomework_StudentManagementView::OnStudentDel()
 		nIndex=-1;
 	}
 
+}
+
+void CHomework_StudentManagementView::OnStudentAmend() 
+{
+	// TODO: Add your command handler code here
+	CAddStudentDlg *pDlg = new CAddStudentDlg;
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	if (nIndex == -1) {
+		MessageBox("失败，没有选定！！");
+	}
+
+
+	if (nIndex>=0) {
+		CListCtrl& m_ListCtrl = GetListCtrl();
+
+		//双击显示数据到对话框
+		pDlg->m_strNo		= m_ListCtrl.GetItemText(nIndex , 0);
+		pDlg->m_strName		= m_ListCtrl.GetItemText(nIndex , 1);
+		pDlg->m_strSex		= m_ListCtrl.GetItemText(nIndex , 2);
+		pDlg->m_strBirth	= m_ListCtrl.GetItemText(nIndex , 3);
+		pDlg->m_strCountry	= m_ListCtrl.GetItemText(nIndex , 4);
+		pDlg->m_strNation	= m_ListCtrl.GetItemText(nIndex , 5);
+		pDlg->m_strAddress	= m_ListCtrl.GetItemText(nIndex , 6);
+		
+		pDlg->m_fScoreChinese	= (float)atof(m_ListCtrl.GetItemText(nIndex , 7));
+		pDlg->m_fScoreMath		= (float)atof(m_ListCtrl.GetItemText(nIndex , 8));
+		pDlg->m_fScoreEnglish	= (float)atof(m_ListCtrl.GetItemText(nIndex , 9));
+		pDlg->m_fScorePhysics	= (float)atof(m_ListCtrl.GetItemText(nIndex , 10));
+		pDlg->m_fScoreChemistry	= (float)atof(m_ListCtrl.GetItemText(nIndex , 11));
+		pDlg->m_fScoreBiology	= (float)atof(m_ListCtrl.GetItemText(nIndex , 12));
+		
+		//更新数据
+		if(IDOK==pDlg->DoModal()){//pDlg->DoModal()实例化,如果点击了IDOK就执行
+			
+			POSITION pos = doc->m_stuObList.FindIndex(nIndex);
+			
+			CStudent *pStu = new CStudent(pDlg->m_strName , pDlg->m_strNo , pDlg->m_strSex ,pDlg->m_strBirth , pDlg->m_strCountry , pDlg->m_strNation , pDlg->m_strAddress , 
+			pDlg->m_fScoreChinese , pDlg->m_fScoreMath , pDlg->m_fScoreEnglish , pDlg->m_fScorePhysics , pDlg->m_fScoreChemistry , pDlg->m_fScoreBiology);
+		
+			doc->m_stuObList.SetAt(pos , pStu);
+			
+
+			UpdateListItemData();
+		}
+
+		UpdateData(FALSE);
+
+		nIndex = -1;
+	}
 
 	
 }

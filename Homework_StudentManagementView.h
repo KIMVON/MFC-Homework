@@ -66,6 +66,7 @@ protected:
 	afx_msg void OnDblclk(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnClick(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnStudentDel();
+	afx_msg void OnStudentAmend();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

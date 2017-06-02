@@ -58,14 +58,16 @@ BOOL CHomework_StudentManagementDoc::OnNewDocument()
 
 void CHomework_StudentManagementDoc::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring())
+	if (ar.IsStoring())////保存，写出
 	{
 		// TODO: add storing code here
 		m_stuObList.Serialize(ar);
 	}
-	else
+	else//打开，写入
 	{
 		// TODO: add loading code here
+		//写入前，先清空m_stuObList
+		m_stuObList.RemoveAll();
 		m_stuObList.Serialize(ar);
 	}
 }
@@ -121,9 +123,9 @@ IMPLEMENT_SERIAL(CStudent , CObject , 1);
 
 void CStudent::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring()) {
+	if (ar.IsStoring()) { //保存，写出
 		ar<<strNo<<strName<<strSex<<strBirth<<strCountry<<strNation<<strAddress<<fScoreChinese<<fScoreMath<<fScoreEnglish<<fScorePhysics<<fScoreChemistry<<fScoreBiology<<fScoreAverage;
-	}else{
+	}else{//写入，打开
 		ar>>strNo>>strName>>strSex>>strBirth>>strCountry>>strNation>>strAddress>>fScoreChinese>>fScoreMath>>fScoreEnglish>>fScorePhysics>>fScoreChemistry>>fScoreBiology>>fScoreAverage;
 	}
 }

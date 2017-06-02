@@ -49,6 +49,7 @@ public:
 
 // Implementation
 public:
+	void UpdateListItemData(CObList& list);
 	int nIndex; //表示选中的列表项的索引
 	void UpdateListItemData();
 	virtual ~CHomework_StudentManagementView();

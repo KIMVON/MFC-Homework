@@ -430,6 +430,8 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 			}
 
 		}
+
+		UpdateListItemData(list);
 	}
 	
 }
@@ -454,5 +456,65 @@ void CHomework_StudentManagementView::OnStudentSearchByName()
 			}
 
 		}
+		UpdateListItemData(list);
+	}
+}
+
+void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
+{
+	CListCtrl& m_ListCtrl = GetListCtrl();
+	m_ListCtrl.DeleteAllItems();
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	
+	int nIndex;
+
+	//while (pos!=NULL) {
+	for (int nItem = 0 ; nItem <list.GetCount() ; nItem++ ) {
+
+		POSITION pos = list.FindIndex(nItem);
+	
+		CStudent* stu =(CStudent*)list.GetAt(pos);
+		
+		nIndex = m_ListCtrl.InsertItem(nItem , stu->getNo());
+
+		CString str;
+		
+
+//		m_ListCtrl.SetItemText(nIndex , 1 , stu->getNo());
+		m_ListCtrl.SetItemText(nIndex , 1 , stu->getName());
+		m_ListCtrl.SetItemText(nIndex , 2 , stu->getSex());
+		m_ListCtrl.SetItemText(nIndex , 3 , stu->getBirth());
+		m_ListCtrl.SetItemText(nIndex , 4 , stu->getCountry());
+		m_ListCtrl.SetItemText(nIndex , 5 , stu->getNation());
+		m_ListCtrl.SetItemText(nIndex , 6 , stu->getAddress());
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getChineseScore());
+		m_ListCtrl.SetItemText(nIndex , 7 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getMathScore());
+		m_ListCtrl.SetItemText(nIndex , 8 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getEnglishScore());
+		m_ListCtrl.SetItemText(nIndex , 9 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getPhysicsScore());
+		m_ListCtrl.SetItemText(nIndex , 10 , str);
+
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getChemistryScore());
+		m_ListCtrl.SetItemText(nIndex , 11 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getBiologyScore());
+		m_ListCtrl.SetItemText(nIndex , 12 , str);
+		
+		//浮点数转字符串
+		str.Format("%.1f" , stu->getAverageScore());
+		m_ListCtrl.SetItemText(nIndex , 13 , str);
+	
 	}
 }

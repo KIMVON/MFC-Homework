@@ -2,24 +2,28 @@
 
 [General Info]
 Version=1
-LastClass=CHomework_StudentManagementView
+LastClass=CSearchStudentByNo
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
 LastPage=0
 
-ClassCount=6
+ClassCount=8
 Class1=CHomework_StudentManagementApp
 Class2=CHomework_StudentManagementDoc
 Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
-ResourceCount=3
+ResourceCount=5
 Resource1=IDD_ABOUTBOX
 Resource2=IDD_DIALOG1
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDR_MAINFRAME
+Resource3=IDD_DIALOG2
+Class7=CSearchStudentByNo
+Resource4=IDR_MAINFRAME
+Class8=CSearchStudentByName
+Resource5=IDD_DIALOG3
 
 [CLS:CHomework_StudentManagementApp]
 Type=0
@@ -43,7 +47,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=ID_STUDENT_AMEND
+LastObject=CHomework_StudentManagementView
 
 
 [CLS:CMainFrame]
@@ -51,7 +55,7 @@ Type=0
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
 Filter=T
-LastObject=ID_STUDENT_ADD
+LastObject=CMainFrame
 BaseClass=CFrameWnd
 VirtualFilter=fWC
 
@@ -186,4 +190,42 @@ BaseClass=CDialog
 Filter=D
 LastObject=CAddStudentDlg
 VirtualFilter=dWC
+
+[DLG:IDD_DIALOG2]
+Type=1
+Class=CSearchStudentByNo
+ControlCount=5
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342177296
+Control4=IDC_EDIT1,edit,1350631552
+Control5=IDC_STATIC,static,1342308865
+
+[CLS:CSearchStudentByNo]
+Type=0
+HeaderFile=SearchStudentByNo.h
+ImplementationFile=SearchStudentByNo.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDOK
+VirtualFilter=dWC
+
+[DLG:IDD_DIALOG3]
+Type=1
+Class=CSearchStudentByName
+ControlCount=5
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_EDIT1,edit,1350631552
+Control4=IDC_STATIC,static,1342308865
+Control5=IDC_STATIC,static,1342177296
+
+[CLS:CSearchStudentByName]
+Type=0
+HeaderFile=SearchStudentByName.h
+ImplementationFile=SearchStudentByName.cpp
+BaseClass=CDialog
+Filter=D
+VirtualFilter=dWC
+LastObject=IDOK
 

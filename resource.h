@@ -6,6 +6,8 @@
 #define IDR_MAINFRAME                   128
 #define IDR_HOMEWOTYPE                  129
 #define IDD_DIALOG1                     130
+#define IDD_DIALOG2                     131
+#define IDD_DIALOG3                     132
 #define IDC_EDIT_NO                     1001
 #define IDC_EDIT_NAME                   1004
 #define IDC_EDIT_BIRTH                  1005
@@ -21,6 +23,7 @@
 #define IDC_EDIT_SCORE_BIOLOGY          1015
 #define IDC_SPIN1                       1016
 #define IDC_SPIN2                       1017
+#define IDC_EDIT1                       1017
 #define IDC_SPIN3                       1018
 #define IDC_SPIN4                       1019
 #define IDC_SPIN5                       1020
@@ -45,9 +48,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        131
+#define _APS_NEXT_RESOURCE_VALUE        133
 #define _APS_NEXT_COMMAND_VALUE         32787
-#define _APS_NEXT_CONTROL_VALUE         1017
+#define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

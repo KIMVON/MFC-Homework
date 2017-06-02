@@ -8,6 +8,8 @@
 #include "Homework_StudentManagementView.h"
 
 #include "AddStudentDlg.h"
+#include "SearchStudentByNo.h"
+#include "SearchStudentByName.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -27,6 +29,9 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_NOTIFY_REFLECT(NM_CLICK, OnClick)
 	ON_COMMAND(ID_STUDENT_DEL, OnStudentDel)
 	ON_COMMAND(ID_STUDENT_AMEND, OnStudentAmend)
+	ON_COMMAND(ID_STUDENT_SEARCH_ALL, OnStudentSearchAll)
+	ON_COMMAND(ID_STUDENT_SEARCH_BY_NO, OnStudentSearchByNo)
+	ON_COMMAND(ID_STUDENT_SEARCH_BY_NAME, OnStudentSearchByName)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -397,4 +402,29 @@ void CHomework_StudentManagementView::OnStudentAmend()
 	}
 
 	
+}
+
+void CHomework_StudentManagementView::OnStudentSearchAll() 
+{
+	// TODO: Add your command handler code here
+	UpdateListItemData();
+}
+
+void CHomework_StudentManagementView::OnStudentSearchByNo() 
+{
+	// TODO: Add your command handler code here
+	CSearchStudentByNo dlg;
+	if(IDOK==dlg.DoModal()){
+	
+	}
+	
+}
+
+void CHomework_StudentManagementView::OnStudentSearchByName() 
+{
+	// TODO: Add your command handler code here
+	CSearchStudentByName dlg;
+	if(IDOK==dlg.DoModal()){
+	
+	}
 }

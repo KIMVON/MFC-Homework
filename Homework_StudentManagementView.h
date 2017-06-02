@@ -67,6 +67,9 @@ protected:
 	afx_msg void OnClick(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnStudentDel();
 	afx_msg void OnStudentAmend();
+	afx_msg void OnStudentSearchAll();
+	afx_msg void OnStudentSearchByNo();
+	afx_msg void OnStudentSearchByName();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

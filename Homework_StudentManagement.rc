@@ -120,14 +120,6 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "退出(&X)",                    ID_APP_EXIT
     END
-    POPUP "编辑(&E)"
-    BEGIN
-        MENUITEM "撤消(&U)\tCtrl+Z",            ID_EDIT_UNDO
-        MENUITEM SEPARATOR
-        MENUITEM "剪切(&T)\tCtrl+X",            ID_EDIT_CUT
-        MENUITEM "复制(&C)\tCtrl+C",            ID_EDIT_COPY
-        MENUITEM "粘贴(&P)\tCtrl+V",            ID_EDIT_PASTE
-    END
     POPUP "查看(&V)"
     BEGIN
         MENUITEM "工具栏(&T)",                  ID_VIEW_TOOLBAR
@@ -138,10 +130,22 @@ BEGIN
         MENUITEM "添加学生信息",                ID_STUDENT_ADD
         MENUITEM "修改学生信息",                ID_STUDENT_AMEND
         MENUITEM "删除学生信息",                ID_STUDENT_DEL
+        MENUITEM "检索单个学生",                ID_STUDENT_SEARCH
+        POPUP "学生排序"
+        BEGIN
+            MENUITEM "原始顺序",                    ID_MENUITEM32783
+            MENUITEM "语文成绩",                    ID_MENUITEM32776
+            MENUITEM "英语成绩",                    ID_MENUITEM32777
+            MENUITEM "数学成绩",                    ID_MENUITEM32778
+            MENUITEM "物理成绩",                    ID_MENUITEM32779
+            MENUITEM "化学成绩",                    ID_MENUITEM32780
+            MENUITEM "生物成绩",                    ID_MENUITEM32781
+            MENUITEM "平均成绩",                    ID_MENUITEM32782
+        END
     END
     POPUP "帮助(&H)"
     BEGIN
-        MENUITEM "关于 Homework_StudentManagement(&A)...", ID_APP_ABOUT
+        MENUITEM "关于",                        ID_APP_ABOUT
     END
 END
 

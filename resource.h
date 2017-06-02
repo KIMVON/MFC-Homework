@@ -28,6 +28,15 @@
 #define ID_STUDENT_ADD                  32771
 #define ID_STUDENT_AMEND                32772
 #define ID_STUDENT_DEL                  32773
+#define ID_STUDENT_SEARCH               32774
+#define ID_MENUITEM32776                32776
+#define ID_MENUITEM32777                32777
+#define ID_MENUITEM32778                32778
+#define ID_MENUITEM32779                32779
+#define ID_MENUITEM32780                32780
+#define ID_MENUITEM32781                32781
+#define ID_MENUITEM32782                32782
+#define ID_MENUITEM32783                32783
 
 // Next default values for new objects
 // 
@@ -35,7 +44,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        131
-#define _APS_NEXT_COMMAND_VALUE         32774
+#define _APS_NEXT_COMMAND_VALUE         32784
 #define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

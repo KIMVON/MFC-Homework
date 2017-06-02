@@ -6,6 +6,22 @@
 --------------------Configuration: Homework_StudentManagement - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Homework_StudentManagement.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\79069\Desktop\C++สตั้\Homework_StudentManagement\Homework_StudentManagement.rc"" 
+Creating temporary file "C:\Users\79069\AppData\Local\Temp\RSP1EDD.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Homework_StudentManagement.pdb" /debug /machine:I386 /out:"Debug/Homework_StudentManagement.exe" /pdbtype:sept 
+".\Debug\AddStudentDlg.obj"
+".\Debug\Homework_StudentManagement.obj"
+".\Debug\Homework_StudentManagementDoc.obj"
+".\Debug\Homework_StudentManagementView.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Homework_StudentManagement.res"
+]
+Creating command line "link.exe @C:\Users\79069\AppData\Local\Temp\RSP1EDD.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
 
 
 

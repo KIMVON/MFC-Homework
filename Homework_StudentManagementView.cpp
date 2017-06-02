@@ -10,6 +10,7 @@
 #include "AddStudentDlg.h"
 #include "SearchStudentByNo.h"
 #include "SearchStudentByName.h"
+#include "AscendOrDescendDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -32,6 +33,7 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_STUDENT_SEARCH_ALL, OnStudentSearchAll)
 	ON_COMMAND(ID_STUDENT_SEARCH_BY_NO, OnStudentSearchByNo)
 	ON_COMMAND(ID_STUDENT_SEARCH_BY_NAME, OnStudentSearchByName)
+	ON_COMMAND(ID_STUDENT_SORT_AVERAGE, OnStudentSortAverage)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -517,4 +519,22 @@ void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 		m_ListCtrl.SetItemText(nIndex , 13 , str);
 	
 	}
+}
+
+
+void CHomework_StudentManagementView::OnStudentSortAverage() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+
+	int nResponse = dlg.DoModal();
+	if (IDOK == nResponse) {
+		MessageBox("AAAAAAAAA");
+	}
+	
+	if (IDCANCEL == nResponse) {
+	
+		MessageBox("BBBBBBBB");
+	}
+	
 }

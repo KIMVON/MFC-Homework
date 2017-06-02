@@ -8,6 +8,7 @@
 #define IDD_DIALOG1                     130
 #define IDD_DIALOG2                     131
 #define IDD_DIALOG3                     132
+#define IDD_DIALOG4                     133
 #define IDC_EDIT_NO                     1001
 #define IDC_EDIT_NAME                   1004
 #define IDC_EDIT_BIRTH                  1005
@@ -48,7 +49,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        133
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32787
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101

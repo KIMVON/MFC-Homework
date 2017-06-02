@@ -94,6 +94,10 @@ SOURCE=.\AddStudentDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\AscendOrDescendDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Homework_StudentManagement.cpp
 # End Source File
 # Begin Source File
@@ -132,6 +136,10 @@ SOURCE=.\StdAfx.cpp
 # Begin Source File
 
 SOURCE=.\AddStudentDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AscendOrDescendDlg.h
 # End Source File
 # Begin Source File
 

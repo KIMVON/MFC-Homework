@@ -71,6 +71,7 @@ protected:
 	afx_msg void OnStudentSearchAll();
 	afx_msg void OnStudentSearchByNo();
 	afx_msg void OnStudentSearchByName();
+	afx_msg void OnStudentSortAverage();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

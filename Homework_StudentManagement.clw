@@ -2,19 +2,19 @@
 
 [General Info]
 Version=1
-LastClass=CSearchStudentByNo
+LastClass=CAscendOrDescendDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
 LastPage=0
 
-ClassCount=8
+ClassCount=9
 Class1=CHomework_StudentManagementApp
 Class2=CHomework_StudentManagementDoc
 Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
-ResourceCount=5
+ResourceCount=6
 Resource1=IDD_DIALOG1
 Resource2=IDD_DIALOG2
 Class5=CAboutDlg
@@ -24,6 +24,8 @@ Class7=CSearchStudentByNo
 Resource4=IDD_ABOUTBOX
 Class8=CSearchStudentByName
 Resource5=IDD_DIALOG3
+Class9=CAscendOrDescendDlg
+Resource6=IDD_DIALOG4
 
 [CLS:CHomework_StudentManagementApp]
 Type=0
@@ -47,7 +49,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=CHomework_StudentManagementView
+LastObject=ID_STUDENT_SORT_AVERAGE
 
 
 [CLS:CMainFrame]
@@ -207,7 +209,7 @@ HeaderFile=SearchStudentByNo.h
 ImplementationFile=SearchStudentByNo.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDOK
+LastObject=CSearchStudentByNo
 VirtualFilter=dWC
 
 [DLG:IDD_DIALOG3]
@@ -228,4 +230,20 @@ BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
 LastObject=IDOK
+
+[DLG:IDD_DIALOG4]
+Type=1
+Class=CAscendOrDescendDlg
+ControlCount=2
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+
+[CLS:CAscendOrDescendDlg]
+Type=0
+HeaderFile=AscendOrDescendDlg.h
+ImplementationFile=AscendOrDescendDlg.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CAscendOrDescendDlg
+VirtualFilter=dWC
 

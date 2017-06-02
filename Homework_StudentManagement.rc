@@ -270,6 +270,15 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,26,64,200,1
 END
 
+IDD_DIALOG4 DIALOG DISCARDABLE  0, 0, 187, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Ñ¡Ôñ"
+FONT 9, "ËÎÌå"
+BEGIN
+    DEFPUSHBUTTON   "ÉýÐò",IDOK,24,33,62,24
+    PUSHBUTTON      "½µÐò",IDCANCEL,102,33,62,24
+END
+
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -355,6 +364,14 @@ BEGIN
         RIGHTMARGIN, 246
         TOPMARGIN, 7
         BOTTOMMARGIN, 102
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
     END
 END
 #endif    // APSTUDIO_INVOKED

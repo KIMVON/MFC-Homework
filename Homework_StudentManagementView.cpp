@@ -414,8 +414,22 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 {
 	// TODO: Add your command handler code here
 	CSearchStudentByNo dlg;
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
 	if(IDOK==dlg.DoModal()){
-	
+		CObList list;
+
+		for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+			POSITION pos = doc->m_stuObList.FindIndex(i);
+			
+			CStudent *stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+			if (dlg.m_strStudentNo == stu->getNo()) {
+				list.AddTail(stu);	
+			}
+
+		}
 	}
 	
 }
@@ -424,7 +438,21 @@ void CHomework_StudentManagementView::OnStudentSearchByName()
 {
 	// TODO: Add your command handler code here
 	CSearchStudentByName dlg;
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
 	if(IDOK==dlg.DoModal()){
-	
+		CObList list;
+
+		for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+			POSITION pos = doc->m_stuObList.FindIndex(i);
+			
+			CStudent *stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+			if (dlg.m_strStudentName == stu->getName()) {
+				list.AddTail(stu);	
+			}
+
+		}
 	}
 }

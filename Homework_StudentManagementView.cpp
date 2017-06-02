@@ -109,6 +109,26 @@ void CHomework_StudentManagementView::OnInitialUpdate()
 	m_ListCtrl.SetColumnWidth(12, 100);	// 生物列宽
 	m_ListCtrl.SetColumnWidth(13, 100);	// 平均成绩列宽
 
+
+
+	
+	//删除多余的列
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum!=14) {
+		//	CString str;
+		//	str.Format("%s" , nHeadNum);
+		//	MessageBox(str ); 
+		for (int i=13; i>=0; i--){
+			  m_ListCtrl.DeleteColumn (i);
+			  
+		}
+		
+
+		UpdateListItemData();
+		
+	}
+
+
 }
 
 /////////////////////////////////////////////////////////////////////////////

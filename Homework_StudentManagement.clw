@@ -15,15 +15,15 @@ Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
 ResourceCount=6
-Resource1=IDD_DIALOG1
-Resource2=IDD_DIALOG2
+Resource1=IDR_MAINFRAME
+Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDR_MAINFRAME
+Resource3=IDD_DIALOG2
 Class7=CSearchStudentByNo
-Resource4=IDD_ABOUTBOX
+Resource4=IDD_DIALOG3
 Class8=CSearchStudentByName
-Resource5=IDD_DIALOG3
+Resource5=IDD_DIALOG1
 Class9=CAscendOrDescendDlg
 Resource6=IDD_DIALOG4
 

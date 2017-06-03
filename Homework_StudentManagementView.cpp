@@ -531,6 +531,7 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 	int nResponse = dlg.DoModal();
 	
 	CObList list;
+	//¸´ÖÆList
 	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
 		POSITION pos = doc->m_stuObList.FindIndex(i);
 		
@@ -541,11 +542,11 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 	if (IDOK == nResponse) {
 		
 		for (int i=0 ; i < list.GetCount() ; i++) {
-			POSITION posI = doc->m_stuObList.FindIndex(i);
+			POSITION posI = list.FindIndex(i);
 			for (int j = i+1 ; j < list.GetCount() ; j++) {
-				POSITION posJ = doc->m_stuObList.FindIndex(j);
+				POSITION posJ = list.FindIndex(j);
 				
-				if (((CStudent*)list.GetAt(posI))->getAverageScore() < ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
+				if (((CStudent*)list.GetAt(posI))->getAverageScore() > ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
 					CStudent *stuI = (CStudent*)list.GetAt(posI);
 					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
 					
@@ -563,11 +564,11 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 	if (IDCANCEL == nResponse) {
 	
 		for (int i=0 ; i < list.GetCount() ; i++) {
-			POSITION posI = doc->m_stuObList.FindIndex(i);
+			POSITION posI = list.FindIndex(i);
 			for (int j = i+1 ; j < list.GetCount() ; j++) {
-				POSITION posJ = doc->m_stuObList.FindIndex(j);
+				POSITION posJ = list.FindIndex(j);
 				
-				if (((CStudent*)list.GetAt(posI))->getAverageScore() > ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
+				if (((CStudent*)list.GetAt(posI))->getAverageScore() < ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
 					CStudent *stuI = (CStudent*)list.GetAt(posI);
 					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
 					

@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CAscendOrDescendDlg
+LastClass=CHomework_StudentManagementView
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
@@ -15,15 +15,15 @@ Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
 ResourceCount=6
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+Resource1=IDD_ABOUTBOX
+Resource2=IDD_DIALOG1
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDD_DIALOG2
+Resource3=IDD_DIALOG3
 Class7=CSearchStudentByNo
-Resource4=IDD_DIALOG3
+Resource4=IDR_MAINFRAME
 Class8=CSearchStudentByName
-Resource5=IDD_DIALOG1
+Resource5=IDD_DIALOG2
 Class9=CAscendOrDescendDlg
 Resource6=IDD_DIALOG4
 
@@ -49,7 +49,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=ID_STUDENT_SORT_AVERAGE
+LastObject=ID_STUDENT_SORT_PHYSICS
 
 
 [CLS:CMainFrame]

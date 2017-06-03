@@ -34,6 +34,13 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_STUDENT_SEARCH_BY_NO, OnStudentSearchByNo)
 	ON_COMMAND(ID_STUDENT_SEARCH_BY_NAME, OnStudentSearchByName)
 	ON_COMMAND(ID_STUDENT_SORT_AVERAGE, OnStudentSortAverage)
+	ON_COMMAND(ID_STUDENT_SORT_BIOLOGY, OnStudentSortBiology)
+	ON_COMMAND(ID_STUDENT_SORT_CHEMISTRY, OnStudentSortChemistry)
+	ON_COMMAND(ID_STUDENT_SORT_CHINESE, OnStudentSortChinese)
+	ON_COMMAND(ID_STUDENT_SORT_ENGLISH, OnStudentSortEnglish)
+	ON_COMMAND(ID_STUDENT_SORT_MATH, OnStudentSortMath)
+	ON_COMMAND(ID_STUDENT_SORT_ORIGINAL, OnStudentSortOriginal)
+	ON_COMMAND(ID_STUDENT_SORT_PHYSICS, OnStudentSortPhysics)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -405,13 +412,13 @@ void CHomework_StudentManagementView::OnStudentAmend()
 
 	
 }
-
+/************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchAll() 
 {
 	// TODO: Add your command handler code here
 	UpdateListItemData();
 }
-
+/************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchByNo() 
 {
 	// TODO: Add your command handler code here
@@ -437,7 +444,7 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 	}
 	
 }
-
+/************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchByName() 
 {
 	// TODO: Add your command handler code here
@@ -461,7 +468,7 @@ void CHomework_StudentManagementView::OnStudentSearchByName()
 		UpdateListItemData(list);
 	}
 }
-
+/************************************************************************/
 void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 {
 	CListCtrl& m_ListCtrl = GetListCtrl();
@@ -520,8 +527,8 @@ void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 	
 	}
 }
-
-
+/************************************************************************/
+//∆Ωæ˘≥…º®≈≈–Ú
 void CHomework_StudentManagementView::OnStudentSortAverage() 
 {
 	// TODO: Add your command handler code here
@@ -581,4 +588,397 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 		UpdateListItemData(list);
 	}
 	
+}
+/************************************************************************/
+
+
+//…˙ŒÔ≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortBiology() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getBiologyScore() > ((CStudent*)list.GetAt(posJ))->getBiologyScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getBiologyScore() < ((CStudent*)list.GetAt(posJ))->getBiologyScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
+	
+}
+
+/************************************************************************/
+//ªØ—ß≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortChemistry() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getChemistryScore() > ((CStudent*)list.GetAt(posJ))->getChemistryScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getChemistryScore() < ((CStudent*)list.GetAt(posJ))->getChemistryScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
+}
+
+/************************************************************************/
+
+//”ÔŒƒ≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortChinese() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getChineseScore() > ((CStudent*)list.GetAt(posJ))->getChineseScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getChineseScore() < ((CStudent*)list.GetAt(posJ))->getChineseScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
+}
+
+/************************************************************************/
+
+//”¢”Ô≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortEnglish() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getEnglishScore() > ((CStudent*)list.GetAt(posJ))->getEnglishScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getEnglishScore() < ((CStudent*)list.GetAt(posJ))->getEnglishScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
+
+}
+
+/************************************************************************/
+
+// ˝—ß≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortMath() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getMathScore() > ((CStudent*)list.GetAt(posJ))->getMathScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getMathScore() < ((CStudent*)list.GetAt(posJ))->getMathScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
+}
+
+
+/************************************************************************/
+
+
+//‘≠ º≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortOriginal() 
+{
+	// TODO: Add your command handler code here
+	UpdateListItemData();
+}
+
+
+/************************************************************************/
+ 
+
+
+//ŒÔ¿Ì≈≈–Ú
+void CHomework_StudentManagementView::OnStudentSortPhysics() 
+{
+	// TODO: Add your command handler code here
+	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
+
+	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	//∏¥÷∆List
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//…˝–Ú
+	if (IDOK == nResponse) {
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getPhysicsScore() > ((CStudent*)list.GetAt(posJ))->getPhysicsScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
+	}
+	
+	//Ωµ–Ú
+	if (IDCANCEL == nResponse) {
+	
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = list.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = list.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getPhysicsScore() < ((CStudent*)list.GetAt(posJ))->getPhysicsScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+	}
 }

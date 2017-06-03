@@ -72,6 +72,13 @@ protected:
 	afx_msg void OnStudentSearchByNo();
 	afx_msg void OnStudentSearchByName();
 	afx_msg void OnStudentSortAverage();
+	afx_msg void OnStudentSortBiology();
+	afx_msg void OnStudentSortChemistry();
+	afx_msg void OnStudentSortChinese();
+	afx_msg void OnStudentSortEnglish();
+	afx_msg void OnStudentSortMath();
+	afx_msg void OnStudentSortOriginal();
+	afx_msg void OnStudentSortPhysics();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

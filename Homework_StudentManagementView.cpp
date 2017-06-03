@@ -648,6 +648,42 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 		}
 
 		UpdateListItemData(list);
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getAverageScore() == ((CStudent*)list.GetAt(pos2))->getAverageScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
 	}
 
 
@@ -763,6 +799,46 @@ void CHomework_StudentManagementView::OnStudentSortBiology()
 		}
 
 		UpdateListItemData(list);
+
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getBiologyScore() == ((CStudent*)list.GetAt(pos2))->getBiologyScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
+
+
+
 	}
 	
 }
@@ -873,6 +949,47 @@ void CHomework_StudentManagementView::OnStudentSortChemistry()
 		}
 
 		UpdateListItemData(list);
+
+
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getChemistryScore() == ((CStudent*)list.GetAt(pos2))->getChemistryScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
+
+
+
 	}
 }
 
@@ -984,6 +1101,44 @@ void CHomework_StudentManagementView::OnStudentSortChinese()
 		}
 
 		UpdateListItemData(list);
+
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getChineseScore() == ((CStudent*)list.GetAt(pos2))->getChineseScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
+
 	}
 }
 
@@ -1098,6 +1253,44 @@ void CHomework_StudentManagementView::OnStudentSortEnglish()
 		}
 
 		UpdateListItemData(list);
+		
+
+		
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getEnglishScore() == ((CStudent*)list.GetAt(pos2))->getEnglishScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
+
 	}
 
 }
@@ -1212,6 +1405,43 @@ void CHomework_StudentManagementView::OnStudentSortMath()
 		}
 
 		UpdateListItemData(list);
+
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getMathScore() == ((CStudent*)list.GetAt(pos2))->getMathScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+
+
+
+
 	}
 }
 
@@ -1344,5 +1574,44 @@ void CHomework_StudentManagementView::OnStudentSortPhysics()
 		}
 
 		UpdateListItemData(list);
+
+
+
+		//添加排名列--------降序
+		CString str;
+		int order = 1;
+		int total=0;
+		for ( int count = 0  ; count < list.GetCount() ; count++ , order++) {
+			if (count > 0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getPhysicsScore() == ((CStudent*)list.GetAt(pos2))->getPhysicsScore()) {
+					//分数相同，排名大的跟小的一样
+					total++;
+					str.Format("%d" , order - total);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					total=0;
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
+		}
+
+
+		
+
+
+
+
+
 	}
 }

@@ -526,15 +526,58 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 {
 	// TODO: Add your command handler code here
 	CAscendOrDescendDlg dlg;
+	CHomework_StudentManagementDoc* doc = GetDocument();
 
 	int nResponse = dlg.DoModal();
+	
+	CObList list;
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		POSITION pos = doc->m_stuObList.FindIndex(i);
+		
+		list.AddTail(doc->m_stuObList.GetAt(pos));
+	}
+
+	//ÉýÐò
 	if (IDOK == nResponse) {
-		MessageBox("AAAAAAAAA");
+		
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = doc->m_stuObList.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = doc->m_stuObList.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getAverageScore() < ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
+		
 	}
 	
+	//½µÐò
 	if (IDCANCEL == nResponse) {
 	
-		MessageBox("BBBBBBBB");
+		for (int i=0 ; i < list.GetCount() ; i++) {
+			POSITION posI = doc->m_stuObList.FindIndex(i);
+			for (int j = i+1 ; j < list.GetCount() ; j++) {
+				POSITION posJ = doc->m_stuObList.FindIndex(j);
+				
+				if (((CStudent*)list.GetAt(posI))->getAverageScore() > ((CStudent*)list.GetAt(posJ))->getAverageScore()) {
+					CStudent *stuI = (CStudent*)list.GetAt(posI);
+					CStudent *stuJ = (CStudent*)list.GetAt(posJ);
+					
+					list.SetAt(posI , stuJ);
+					list.SetAt(posJ , stuI);
+				}
+			}
+		}
+
+		UpdateListItemData(list);
 	}
 	
 }

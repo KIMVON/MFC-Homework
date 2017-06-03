@@ -244,5 +244,57 @@ void CAddStudentDlg::OnOK()
 	// TODO: Add extra validation here
 	UpdateData(TRUE);
 
-	CDialog::OnOK();
+	m_strNo.TrimLeft();
+	m_strName.TrimLeft();
+	m_strBirth.TrimLeft();
+	m_strSex.TrimLeft();
+	m_strCountry.TrimLeft();
+	m_strNation.TrimLeft();
+	m_strAddress.TrimLeft();
+
+	if (m_strNo.IsEmpty()
+		|| m_strName.IsEmpty()
+		|| m_strSex.IsEmpty()
+		|| m_strBirth.IsEmpty()
+		|| m_strCountry.IsEmpty()
+		|| m_strNation.IsEmpty()
+		|| m_strAddress.IsEmpty()) {
+
+		if (m_strNo.IsEmpty()) {
+			MessageBox("学号不能为空！！！");
+		}else if (m_strName.IsEmpty()) {
+			MessageBox("姓名不能为空！！！");
+		}else if (m_strSex.IsEmpty()) {
+			MessageBox("性别不能为空！！！");
+		}else if (m_strBirth.IsEmpty()) {
+			MessageBox("出生日期不能为空！！！");
+		}else if (m_strCountry.IsEmpty()) {
+			MessageBox("国家不能为空！！！");
+		}else if (m_strNation.IsEmpty()) {
+			MessageBox("民族不能为空！！！");
+		}else if (m_strAddress.IsEmpty()) {
+			MessageBox("家庭地址不能为空！！！");
+		}
+		
+	}else{
+		
+		if (!(m_strSex=="男"||m_strSex=="女")) {
+			MessageBox("性别输入的格式不对！！！");
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else if (FALSE) {
+		}else{
+			CDialog::OnOK();
+		}
+	
+	}
+	 
+
+
+
 }

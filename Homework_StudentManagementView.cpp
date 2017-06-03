@@ -1223,6 +1223,16 @@ void CHomework_StudentManagementView::OnStudentSortMath()
 void CHomework_StudentManagementView::OnStudentSortOriginal() 
 {
 	// TODO: Add your command handler code here
+
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
+
 	UpdateListItemData();
 }
 

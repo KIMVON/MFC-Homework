@@ -38,6 +38,14 @@ CHomework_StudentManagementDoc::CHomework_StudentManagementDoc()
 
 CHomework_StudentManagementDoc::~CHomework_StudentManagementDoc()
 {
+	int nIndex = m_stuObList.GetCount();
+
+	while (nIndex--) {
+		POSITION pos = m_stuObList.FindIndex(nIndex);
+		delete m_stuObList.GetAt(pos);
+	}
+
+	m_stuObList.RemoveAll();
 }
 
 BOOL CHomework_StudentManagementDoc::OnNewDocument()

@@ -412,12 +412,16 @@ void CHomework_StudentManagementView::OnStudentAmend()
 
 	
 }
+
+
 /************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchAll() 
 {
 	// TODO: Add your command handler code here
 	UpdateListItemData();
 }
+
+
 /************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchByNo() 
 {
@@ -444,6 +448,8 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 	}
 	
 }
+
+
 /************************************************************************/
 void CHomework_StudentManagementView::OnStudentSearchByName() 
 {
@@ -468,6 +474,8 @@ void CHomework_StudentManagementView::OnStudentSearchByName()
 		UpdateListItemData(list);
 	}
 }
+
+
 /************************************************************************/
 void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 {

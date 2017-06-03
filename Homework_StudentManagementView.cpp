@@ -251,6 +251,12 @@ void CHomework_StudentManagementView::UpdateListItemData()
 void CHomework_StudentManagementView::OnStudentAdd() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
 
 	CAddStudentDlg dlg;
 
@@ -277,6 +283,15 @@ void CHomework_StudentManagementView::OnStudentAdd()
 void CHomework_StudentManagementView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	// TODO: Add your control notification handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
+
 	CAddStudentDlg *pDlg = new CAddStudentDlg;
 
 	CHomework_StudentManagementDoc* doc = GetDocument();
@@ -341,6 +356,14 @@ void CHomework_StudentManagementView::OnClick(NMHDR* pNMHDR, LRESULT* pResult)
 void CHomework_StudentManagementView::OnStudentDel() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
 	if (nIndex == -1) {
@@ -364,6 +387,14 @@ void CHomework_StudentManagementView::OnStudentDel()
 void CHomework_StudentManagementView::OnStudentAmend() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
 	CAddStudentDlg *pDlg = new CAddStudentDlg;
 
 	CHomework_StudentManagementDoc* doc = GetDocument();
@@ -419,6 +450,14 @@ void CHomework_StudentManagementView::OnStudentAmend()
 void CHomework_StudentManagementView::OnStudentSearchAll() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
 	UpdateListItemData();
 }
 
@@ -427,6 +466,16 @@ void CHomework_StudentManagementView::OnStudentSearchAll()
 void CHomework_StudentManagementView::OnStudentSearchByNo() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
+
+
 	CSearchStudentByNo dlg;
 
 	CHomework_StudentManagementDoc* doc = GetDocument();
@@ -459,6 +508,15 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 void CHomework_StudentManagementView::OnStudentSearchByName() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+
+
 	CSearchStudentByName dlg;
 
 	CHomework_StudentManagementDoc* doc = GetDocument();

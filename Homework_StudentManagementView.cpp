@@ -550,8 +550,9 @@ void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 void CHomework_StudentManagementView::OnStudentSortAverage() 
 {
 	// TODO: Add your command handler code here
-	CListCtrl& m_ListCtrl = GetListCtrl();
 
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
 
 	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
 	if (nHeadNum==15) {
@@ -559,6 +560,8 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 	}
 
 	m_ListCtrl.InsertColumn(14 , "平均成绩排名" , LVCFMT_LEFT , 100);
+
+/***********************************************************/
 
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
@@ -597,10 +600,29 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 		CString str;
 		int order =list.GetCount();
 		for ( int count = 0  ; count < list.GetCount() ;count++, order--) {
-			//浮点数转字符串
-			str.Format("%d" , order);
-			m_ListCtrl.SetItemText(count , 14 ,  str);
+			if (count>0) {
+				POSITION pos1 = list.FindIndex(count-1);
+				POSITION pos2 = list.FindIndex(count);
+				
+				//如果两个分数相同，排名一样
+				if (((CStudent*)list.GetAt(pos1))->getAverageScore() == ((CStudent*)list.GetAt(pos2))->getAverageScore()) {
+					//分数相同，排名大的跟小的一样
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count-1 , 14 ,  str);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}else{
+					//浮点数转字符串
+					str.Format("%d" , order);
+					m_ListCtrl.SetItemText(count , 14 ,  str);
+				}
+
+			}else{
+	 			//浮点数转字符串
+				str.Format("%d" , order);
+				m_ListCtrl.SetItemText(count , 14 ,  str);
+			}
 		}
+		
 
 		
 	}
@@ -637,6 +659,20 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 void CHomework_StudentManagementView::OnStudentSortBiology() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "生物成绩排名" , LVCFMT_LEFT , 100);
+
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -700,6 +736,19 @@ void CHomework_StudentManagementView::OnStudentSortBiology()
 void CHomework_StudentManagementView::OnStudentSortChemistry() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "化学成绩排名" , LVCFMT_LEFT , 100);
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -763,6 +812,20 @@ void CHomework_StudentManagementView::OnStudentSortChemistry()
 void CHomework_StudentManagementView::OnStudentSortChinese() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "语文成绩排名" , LVCFMT_LEFT , 100);
+
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -826,6 +889,22 @@ void CHomework_StudentManagementView::OnStudentSortChinese()
 void CHomework_StudentManagementView::OnStudentSortEnglish() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "英语成绩排名" , LVCFMT_LEFT , 100);
+
+
+
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -890,6 +969,22 @@ void CHomework_StudentManagementView::OnStudentSortEnglish()
 void CHomework_StudentManagementView::OnStudentSortMath() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "数学成绩排名" , LVCFMT_LEFT , 100);
+
+
+
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -967,6 +1062,20 @@ void CHomework_StudentManagementView::OnStudentSortOriginal()
 void CHomework_StudentManagementView::OnStudentSortPhysics() 
 {
 	// TODO: Add your command handler code here
+
+	//新增排序列
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "物理成绩排名" , LVCFMT_LEFT , 100);
+
+
+
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 

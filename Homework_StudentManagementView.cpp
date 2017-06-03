@@ -129,14 +129,15 @@ void CHomework_StudentManagementView::OnInitialUpdate()
 	//删除多余的列
 	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
 	if (nHeadNum!=14) {
-		//	CString str;
-		//	str.Format("%s" , nHeadNum);
-		//	MessageBox(str ); 
+		 
 		for (int i=13; i>=0; i--){
-			  m_ListCtrl.DeleteColumn (i);
-			  
+			m_ListCtrl.DeleteColumn (i);	  
 		}
 		
+		//如果有排序那一列
+		if (nHeadNum==29) {
+			m_ListCtrl.DeleteColumn(14);
+		}
 
 		UpdateListItemData();
 		
@@ -549,6 +550,16 @@ void CHomework_StudentManagementView::UpdateListItemData(CObList& list)
 void CHomework_StudentManagementView::OnStudentSortAverage() 
 {
 	// TODO: Add your command handler code here
+	CListCtrl& m_ListCtrl = GetListCtrl();
+
+
+	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+	if (nHeadNum==15) {
+		m_ListCtrl.DeleteColumn (14);
+	}
+
+	m_ListCtrl.InsertColumn(14 , "平均成绩排名" , LVCFMT_LEFT , 100);
+
 	CAscendOrDescendDlg dlg;
 	CHomework_StudentManagementDoc* doc = GetDocument();
 
@@ -581,6 +592,16 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 		}
 
 		UpdateListItemData(list);
+
+		//添加排名列
+		CString str;
+		int order =list.GetCount();
+		for ( int count = 0  ; count < list.GetCount() ;count++, order--) {
+			//浮点数转字符串
+			str.Format("%d" , order);
+			m_ListCtrl.SetItemText(count , 14 ,  str);
+		}
+
 		
 	}
 	
@@ -604,6 +625,9 @@ void CHomework_StudentManagementView::OnStudentSortAverage()
 
 		UpdateListItemData(list);
 	}
+
+
+	
 	
 }
 /************************************************************************/

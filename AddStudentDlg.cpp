@@ -252,6 +252,7 @@ void CAddStudentDlg::OnOK()
 	m_strNation.TrimLeft();
 	m_strAddress.TrimLeft();
 
+	//²î´í¼ì²â
 	if (m_strNo.IsEmpty()
 		|| m_strName.IsEmpty()
 		|| m_strSex.IsEmpty()

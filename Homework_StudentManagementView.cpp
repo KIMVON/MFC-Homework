@@ -443,8 +443,12 @@ void CHomework_StudentManagementView::OnStudentSearchByNo()
 			}
 
 		}
-
-		UpdateListItemData(list);
+		if (list.GetCount()==0) {
+			MessageBox("该学号的学生不存在，查询失败！！！");
+		}else{
+			UpdateListItemData(list);
+		}
+		
 	}
 	
 }
@@ -471,7 +475,12 @@ void CHomework_StudentManagementView::OnStudentSearchByName()
 			}
 
 		}
-		UpdateListItemData(list);
+		
+		if (list.GetCount()==0) {
+			MessageBox("该姓名的学生不存在，查询失败！！！");
+		}else{
+			UpdateListItemData(list);
+		}
 	}
 }
 

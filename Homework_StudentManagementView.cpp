@@ -41,6 +41,7 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_STUDENT_SORT_MATH, OnStudentSortMath)
 	ON_COMMAND(ID_STUDENT_SORT_ORIGINAL, OnStudentSortOriginal)
 	ON_COMMAND(ID_STUDENT_SORT_PHYSICS, OnStudentSortPhysics)
+	ON_NOTIFY_REFLECT(NM_RCLICK, OnRclick)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -1672,4 +1673,38 @@ void CHomework_StudentManagementView::OnStudentSortPhysics()
 
 
 	}
+}
+
+
+
+void CHomework_StudentManagementView::OnRclick(NMHDR* pNMHDR, LRESULT* pResult) 
+{
+	// TODO: Add your control notification handler code here
+
+	
+	LPNMITEMACTIVATE lpItem = (LPNMITEMACTIVATE)pNMHDR;
+	nIndex = lpItem->iItem;
+
+	if (nIndex>=0) {
+
+
+		CMenu menu;
+
+		menu.CreatePopupMenu();
+		menu.InsertMenu(0, MF_BYCOMMAND, ID_STUDENT_AMEND, "修改信息");
+		menu.InsertMenu(1, MF_SEPARATOR);
+		menu.InsertMenu(2, MF_BYCOMMAND, ID_STUDENT_DEL, "删除信息");
+
+		CPoint point;//定义一个用于确定光标位置的位置  
+		GetCursorPos(&point);//获取当前光标的位置，以便使得菜单可以跟随光标  
+		//创建快捷菜单
+		menu.TrackPopupMenu( TPM_RIGHTBUTTON, point.x, point.y, this);
+
+
+		menu.DestroyMenu();
+
+	}
+
+	
+	*pResult = 0;
 }

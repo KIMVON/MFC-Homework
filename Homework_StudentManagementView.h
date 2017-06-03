@@ -79,6 +79,7 @@ protected:
 	afx_msg void OnStudentSortMath();
 	afx_msg void OnStudentSortOriginal();
 	afx_msg void OnStudentSortPhysics();
+	afx_msg void OnRclick(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

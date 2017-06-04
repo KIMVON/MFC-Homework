@@ -42,6 +42,7 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_STUDENT_SORT_ORIGINAL, OnStudentSortOriginal)
 	ON_COMMAND(ID_STUDENT_SORT_PHYSICS, OnStudentSortPhysics)
 	ON_NOTIFY_REFLECT(NM_RCLICK, OnRclick)
+	ON_COMMAND(ID_AVERAGE_ALL, OnAverageAll)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -1707,4 +1708,58 @@ void CHomework_StudentManagementView::OnRclick(NMHDR* pNMHDR, LRESULT* pResult)
 
 	
 	*pResult = 0;
+}
+
+void CHomework_StudentManagementView::OnAverageAll() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChinese=0;
+	float sumMath=0;
+	float sumEnglish=0;
+	float sumPhysics=0;
+	float sumChemistry=0;
+	float sumBiology=0;
+
+	CString strAverageChinese;
+	CString strAverageMath;
+	CString strAverageEnglish;
+	CString strAveragePhysics;
+	CString strAverageChemistry;
+	CString strAverageBiology;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumChinese	+= stu->getChineseScore();
+		sumMath		+= stu->getMathScore();
+		sumEnglish	+= stu->getEnglishScore();
+		sumPhysics  += stu->getPhysicsScore();
+		sumChemistry+= stu->getChemistryScore();
+		sumBiology	+= stu->getBiologyScore();
+	}
+
+
+	strAverageChinese.Format("%.1f" , sumChinese *1.0/doc->m_stuObList.GetCount());
+	strAverageMath.Format("%.1f" ,	  sumMath *1.0/doc->m_stuObList.GetCount());
+	strAverageEnglish.Format("%.1f" , sumEnglish *1.0/doc->m_stuObList.GetCount());
+	strAveragePhysics.Format("%.1f" , sumPhysics *1.0/doc->m_stuObList.GetCount());
+	strAverageChemistry.Format("%.1f",sumChemistry *1.0/doc->m_stuObList.GetCount());
+	strAverageBiology.Format("%.1f" , sumBiology *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("语文科目平均成绩："+strAverageChinese+"\n"
+		+"数学科目平均成绩："+strAverageMath+"\n"
+		+"英语科目平均成绩："+strAverageEnglish+"\n"
+		+"物理科目平均成绩："+strAveragePhysics+"\n"
+		+"化学科目平均成绩："+strAverageChemistry+"\n"
+		+"生物科目平均成绩："+strAverageBiology+"\n");
+	
 }

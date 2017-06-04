@@ -15,15 +15,15 @@ Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
 ResourceCount=6
-Resource1=IDR_MAINFRAME
-Resource2=IDD_ABOUTBOX
+Resource1=IDD_DIALOG2
+Resource2=IDD_DIALOG3
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDD_DIALOG2
+Resource3=IDD_ABOUTBOX
 Class7=CSearchStudentByNo
-Resource4=IDD_DIALOG3
+Resource4=IDD_DIALOG1
 Class8=CSearchStudentByName
-Resource5=IDD_DIALOG1
+Resource5=IDR_MAINFRAME
 Class9=CAscendOrDescendDlg
 Resource6=IDD_DIALOG4
 
@@ -49,7 +49,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=ID_AVERAGE_ALL
+LastObject=ID_AVERAGE_PHYSICS
 
 
 [CLS:CMainFrame]

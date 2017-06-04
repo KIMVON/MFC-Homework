@@ -81,6 +81,12 @@ protected:
 	afx_msg void OnStudentSortPhysics();
 	afx_msg void OnRclick(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnAverageAll();
+	afx_msg void OnAverageBiology();
+	afx_msg void OnAverageChemistry();
+	afx_msg void OnAverageChinese();
+	afx_msg void OnAverageEnglish();
+	afx_msg void OnAverageMath();
+	afx_msg void OnAveragePhysics();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

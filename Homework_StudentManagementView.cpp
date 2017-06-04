@@ -43,6 +43,12 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_STUDENT_SORT_PHYSICS, OnStudentSortPhysics)
 	ON_NOTIFY_REFLECT(NM_RCLICK, OnRclick)
 	ON_COMMAND(ID_AVERAGE_ALL, OnAverageAll)
+	ON_COMMAND(ID_AVERAGE_BIOLOGY, OnAverageBiology)
+	ON_COMMAND(ID_AVERAGE_CHEMISTRY, OnAverageChemistry)
+	ON_COMMAND(ID_AVERAGE_CHINESE, OnAverageChinese)
+	ON_COMMAND(ID_AVERAGE_ENGLISH, OnAverageEnglish)
+	ON_COMMAND(ID_AVERAGE_MATH, OnAverageMath)
+	ON_COMMAND(ID_AVERAGE_PHYSICS, OnAveragePhysics)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -1761,5 +1767,190 @@ void CHomework_StudentManagementView::OnAverageAll()
 		+"物理科目平均成绩："+strAveragePhysics+"\n"
 		+"化学科目平均成绩："+strAverageChemistry+"\n"
 		+"生物科目平均成绩："+strAverageBiology+"\n");
+	
+}
+
+void CHomework_StudentManagementView::OnAverageBiology() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+
+	float sumBiology=0;
+
+	CString strAverageBiology;
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumBiology	+= stu->getBiologyScore();
+	}
+
+	strAverageBiology.Format("%.1f" , sumBiology *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("生物科目平均成绩："+strAverageBiology);
+	
+}
+
+void CHomework_StudentManagementView::OnAverageChemistry() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChemistry=0;
+
+	CString strAverageChemistry;
+
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumChemistry+= stu->getChemistryScore();
+
+	}
+
+
+	strAverageChemistry.Format("%.1f",sumChemistry *1.0/doc->m_stuObList.GetCount());
+
+
+
+	MessageBox("化学科目平均成绩："+strAverageChemistry);
+	
+}
+
+void CHomework_StudentManagementView::OnAverageChinese() 
+{
+	// TODO: Add your command handler code here
+		CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChinese=0;
+
+
+	CString strAverageChinese;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumChinese	+= stu->getChineseScore();
+
+	}
+
+
+	strAverageChinese.Format("%.1f" , sumChinese *1.0/doc->m_stuObList.GetCount());
+
+
+
+	MessageBox("语文科目平均成绩："+strAverageChinese);
+	
+}
+
+void CHomework_StudentManagementView::OnAverageEnglish() 
+{
+	// TODO: Add your command handler code here
+		CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumEnglish=0;
+
+	CString strAverageEnglish;
+
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumEnglish	+= stu->getEnglishScore();
+	}
+
+
+	strAverageEnglish.Format("%.1f" , sumEnglish *1.0/doc->m_stuObList.GetCount());
+
+
+
+	MessageBox("英语科目平均成绩："+strAverageEnglish);
+	
+}
+
+void CHomework_StudentManagementView::OnAverageMath() 
+{
+	// TODO: Add your command handler code here
+		CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumMath=0;
+
+	CString strAverageMath;
+
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumMath		+= stu->getMathScore();
+
+	}
+
+	strAverageMath.Format("%.1f" ,	  sumMath *1.0/doc->m_stuObList.GetCount());
+
+
+
+	MessageBox("数学科目平均成绩："+strAverageMath);
+	
+}
+
+void CHomework_StudentManagementView::OnAveragePhysics() 
+{
+	// TODO: Add your command handler code here
+		CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumPhysics=0;
+
+	CString strAveragePhysics;
+
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+
+		sumPhysics  += stu->getPhysicsScore();
+
+	}
+
+
+	strAveragePhysics.Format("%.1f" , sumPhysics *1.0/doc->m_stuObList.GetCount());
+
+
+
+	MessageBox("物理科目平均成绩："+strAveragePhysics);
 	
 }

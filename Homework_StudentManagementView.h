@@ -87,6 +87,7 @@ protected:
 	afx_msg void OnAverageEnglish();
 	afx_msg void OnAverageMath();
 	afx_msg void OnAveragePhysics();
+	afx_msg void OnPassAll();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

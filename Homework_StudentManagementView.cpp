@@ -49,6 +49,7 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_AVERAGE_ENGLISH, OnAverageEnglish)
 	ON_COMMAND(ID_AVERAGE_MATH, OnAverageMath)
 	ON_COMMAND(ID_AVERAGE_PHYSICS, OnAveragePhysics)
+	ON_COMMAND(ID_PASS_ALL, OnPassAll)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -1832,7 +1833,7 @@ void CHomework_StudentManagementView::OnAverageChemistry()
 void CHomework_StudentManagementView::OnAverageChinese() 
 {
 	// TODO: Add your command handler code here
-		CHomework_StudentManagementDoc* doc = GetDocument();
+	CHomework_StudentManagementDoc* doc = GetDocument();
 	
 	CStudent *stu;
 	POSITION pos;
@@ -1864,7 +1865,7 @@ void CHomework_StudentManagementView::OnAverageChinese()
 void CHomework_StudentManagementView::OnAverageEnglish() 
 {
 	// TODO: Add your command handler code here
-		CHomework_StudentManagementDoc* doc = GetDocument();
+	CHomework_StudentManagementDoc* doc = GetDocument();
 	
 	CStudent *stu;
 	POSITION pos;
@@ -1895,7 +1896,7 @@ void CHomework_StudentManagementView::OnAverageEnglish()
 void CHomework_StudentManagementView::OnAverageMath() 
 {
 	// TODO: Add your command handler code here
-		CHomework_StudentManagementDoc* doc = GetDocument();
+	CHomework_StudentManagementDoc* doc = GetDocument();
 	
 	CStudent *stu;
 	POSITION pos;
@@ -1926,7 +1927,7 @@ void CHomework_StudentManagementView::OnAverageMath()
 void CHomework_StudentManagementView::OnAveragePhysics() 
 {
 	// TODO: Add your command handler code here
-		CHomework_StudentManagementDoc* doc = GetDocument();
+	CHomework_StudentManagementDoc* doc = GetDocument();
 	
 	CStudent *stu;
 	POSITION pos;
@@ -1953,4 +1954,72 @@ void CHomework_StudentManagementView::OnAveragePhysics()
 
 	MessageBox("物理科目平均成绩："+strAveragePhysics);
 	
+}
+
+
+
+void CHomework_StudentManagementView::OnPassAll() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChinese=0;
+	float sumMath=0;
+	float sumEnglish=0;
+	float sumPhysics=0;
+	float sumChemistry=0;
+	float sumBiology=0;
+
+	CString strPassChinese;
+	CString strPassMath;
+	CString strPassEnglish;
+	CString strPassPhysics;
+	CString strPassChemistry;
+	CString strPassBiology;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getChineseScore() >= 60 ) {
+			sumChinese++;
+		}
+		if (stu->getMathScore() >= 60 ) {
+			sumMath++;
+		}
+		if (stu->getEnglishScore() >= 60 ) {
+			sumEnglish++;
+		}
+		if (stu->getPhysicsScore() >= 60 ) {
+			sumPhysics++;
+		}
+		if (stu->getChemistryScore() >= 60 ) {
+			sumChemistry++;
+		}
+		if (stu->getBiologyScore() >= 60 ) {
+			sumBiology++;
+		}
+	 
+	}
+
+
+	strPassChinese.Format("%.1f" , 100*sumChinese *1.0/doc->m_stuObList.GetCount());
+	strPassMath.Format("%.1f" ,	  100*sumMath *1.0/doc->m_stuObList.GetCount());
+	strPassEnglish.Format("%.1f" , 100*sumEnglish *1.0/doc->m_stuObList.GetCount());
+	strPassPhysics.Format("%.1f" , 100*sumPhysics *1.0/doc->m_stuObList.GetCount());
+	strPassChemistry.Format("%.1f",100*sumChemistry *1.0/doc->m_stuObList.GetCount());
+	strPassBiology.Format("%.1f" , 100*sumBiology *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("语文科目及格率："+strPassChinese+"%"+"\n"
+		+"数学科目及格率："+strPassMath+"%"+"\n"
+		+"英语科目及格率："+strPassEnglish+"%"+"\n"
+		+"物理科目及格率："+strPassPhysics+"%"+"\n"
+		+"化学科目及格率："+strPassChemistry+"%"+"\n"
+		+"生物科目及格率："+strPassBiology+"%"+"\n");
 }

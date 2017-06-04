@@ -130,6 +130,26 @@ BEGIN
         MENUITEM "添加学生信息",                ID_STUDENT_ADD
         MENUITEM "修改学生信息",                ID_STUDENT_AMEND
         MENUITEM "删除学生信息",                ID_STUDENT_DEL
+        POPUP "科目平均分"
+        BEGIN
+            MENUITEM "所有科目",                    ID_AVERAGE_ALL
+            MENUITEM "语文",                        ID_AVERAGE_CHINESE
+            MENUITEM "数学",                        ID_AVERAGE_MATH
+            MENUITEM "英语",                        ID_AVERAGE_ENGLISH
+            MENUITEM "物理",                        ID_AVERAGE_PHYSICS
+            MENUITEM "化学",                        ID_AVERAGE_CHEMISTRY
+            MENUITEM "生物",                        ID_AVERAGE_BIOLOGY
+        END
+        POPUP "科目及格率"
+        BEGIN
+            MENUITEM "所有科目",                    ID_PASS_ALL
+            MENUITEM "语文",                        ID_PASS_CHINESE
+            MENUITEM "数学",                        ID_PASS_MATH
+            MENUITEM "英语",                        ID_PASS_ENGLISH
+            MENUITEM "物理",                        ID_PASS_PHYSICS
+            MENUITEM "化学",                        ID_PASS_CHEMISTRY
+            MENUITEM "生物",                        ID_PASS_BIOLOGY
+        END
         POPUP "检索单个学生"
         BEGIN
             MENUITEM "所有学生",                    ID_STUDENT_SEARCH_ALL

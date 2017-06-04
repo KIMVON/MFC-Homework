@@ -43,6 +43,20 @@
 #define ID_STUDENT_SEARCH_BY_NO         32784
 #define ID_STUDENT_SEARCH_BY_NAME       32785
 #define ID_STUDENT_SEARCH_ALL           32786
+#define ID_AVERAGE_ALL                  32789
+#define ID_AVERAGE_CHINESE              32790
+#define ID_AVERAGE_MATH                 32791
+#define ID_AVERAGE_ENGLISH              32792
+#define ID_AVERAGE_CHEMISTRY            32793
+#define ID_AVERAGE_BIOLOGY              32794
+#define ID_AVERAGE_PHYSICS              32795
+#define ID_PASS_ALL                     32796
+#define ID_PASS_MATH                    32798
+#define ID_PASS_ENGLISH                 32799
+#define ID_PASS_PHYSICS                 32800
+#define ID_PASS_CHEMISTRY               32801
+#define ID_PASS_BIOLOGY                 32802
+#define ID_PASS_CHINESE                 32803
 
 // Next default values for new objects
 // 
@@ -50,7 +64,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
 #define _APS_NEXT_RESOURCE_VALUE        134
-#define _APS_NEXT_COMMAND_VALUE         32787
+#define _APS_NEXT_COMMAND_VALUE         32804
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

@@ -88,6 +88,12 @@ protected:
 	afx_msg void OnAverageMath();
 	afx_msg void OnAveragePhysics();
 	afx_msg void OnPassAll();
+	afx_msg void OnPassBiology();
+	afx_msg void OnPassChemistry();
+	afx_msg void OnPassChinese();
+	afx_msg void OnPassEnglish();
+	afx_msg void OnPassMath();
+	afx_msg void OnPassPhysics();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

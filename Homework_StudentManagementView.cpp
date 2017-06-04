@@ -50,6 +50,12 @@ BEGIN_MESSAGE_MAP(CHomework_StudentManagementView, CListView)
 	ON_COMMAND(ID_AVERAGE_MATH, OnAverageMath)
 	ON_COMMAND(ID_AVERAGE_PHYSICS, OnAveragePhysics)
 	ON_COMMAND(ID_PASS_ALL, OnPassAll)
+	ON_COMMAND(ID_PASS_BIOLOGY, OnPassBiology)
+	ON_COMMAND(ID_PASS_CHEMISTRY, OnPassChemistry)
+	ON_COMMAND(ID_PASS_CHINESE, OnPassChinese)
+	ON_COMMAND(ID_PASS_ENGLISH, OnPassEnglish)
+	ON_COMMAND(ID_PASS_MATH, OnPassMath)
+	ON_COMMAND(ID_PASS_PHYSICS, OnPassPhysics)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -2022,4 +2028,213 @@ void CHomework_StudentManagementView::OnPassAll()
 		+"物理科目及格率："+strPassPhysics+"%"+"\n"
 		+"化学科目及格率："+strPassChemistry+"%"+"\n"
 		+"生物科目及格率："+strPassBiology+"%"+"\n");
+}
+
+
+
+void CHomework_StudentManagementView::OnPassBiology() 
+{
+	// TODO: Add your command handler code here
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumBiology=0;
+
+	CString strPassBiology;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getBiologyScore() >= 60 ) {
+			sumBiology++;
+		}
+	 
+	}
+
+	strPassBiology.Format("%.1f" , 100*sumBiology *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("生物科目及格率："+strPassBiology+"%");
+	
+
+}
+
+
+
+void CHomework_StudentManagementView::OnPassChemistry() 
+{
+	// TODO: Add your command handler code here
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChemistry=0;
+	
+
+	CString strPassChemistry;
+
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getChemistryScore() >= 60 ) {
+			sumChemistry++;
+		}
+	 
+	}
+
+
+	strPassChemistry.Format("%.1f",100*sumChemistry *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("化学科目及格率："+strPassChemistry+"%");
+	
+}
+
+void CHomework_StudentManagementView::OnPassChinese() 
+{
+	// TODO: Add your command handler code here
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumChinese=0;
+
+	CString strPassChinese;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getChineseScore() >= 60 ) {
+			sumChinese++;
+		}
+	 
+	}
+
+
+	strPassChinese.Format("%.1f" , 100*sumChinese *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("语文科目及格率："+strPassChinese+"%");
+	
+}
+
+void CHomework_StudentManagementView::OnPassEnglish() 
+{
+	// TODO: Add your command handler code here
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	float sumEnglish=0;
+
+	CString strPassEnglish;
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getEnglishScore() >= 60 ) {
+			sumEnglish++;
+		}
+
+	 
+	}
+
+
+	strPassEnglish.Format("%.1f" , 100*sumEnglish *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("英语科目及格率："+strPassEnglish+"%");
+	
+}
+
+void CHomework_StudentManagementView::OnPassMath() 
+{
+	// TODO: Add your command handler code here
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+	
+	float sumMath=0;
+
+	CString strPassMath;
+
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getMathScore() >= 60 ) {
+			sumMath++;
+		}
+		
+	 
+	}
+
+
+	strPassMath.Format("%.1f" ,	  100*sumMath *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("数学科目及格率："+strPassMath+"%");
+	
+}
+
+void CHomework_StudentManagementView::OnPassPhysics() 
+{
+	// TODO: Add your command handler code here
+
+	CHomework_StudentManagementDoc* doc = GetDocument();
+	
+	CStudent *stu;
+	POSITION pos;
+
+
+	float sumPhysics=0;
+
+
+	CString strPassPhysics;
+
+	
+
+	for (int i=0 ; i < doc->m_stuObList.GetCount() ; i++) {
+		pos = doc->m_stuObList.FindIndex(i);
+	
+		stu = (CStudent*)doc->m_stuObList.GetAt(pos);
+		
+		if (stu->getPhysicsScore() >= 60 ) {
+			sumPhysics++;
+		}
+	 
+	}
+
+
+	strPassPhysics.Format("%.1f" , 100*sumPhysics *1.0/doc->m_stuObList.GetCount());
+
+
+	MessageBox("物理科目及格率："+strPassPhysics+"%");
+	
 }

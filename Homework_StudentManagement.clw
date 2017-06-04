@@ -49,7 +49,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=ID_PASS_ALL
+LastObject=ID_PASS_PHYSICS
 
 
 [CLS:CMainFrame]

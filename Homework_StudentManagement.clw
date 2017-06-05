@@ -2,30 +2,32 @@
 
 [General Info]
 Version=1
-LastClass=CHomework_StudentManagementView
+LastClass=CAffirmDel
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "Homework_StudentManagement.h"
 LastPage=0
 
-ClassCount=9
+ClassCount=10
 Class1=CHomework_StudentManagementApp
 Class2=CHomework_StudentManagementDoc
 Class3=CHomework_StudentManagementView
 Class4=CMainFrame
 
-ResourceCount=6
-Resource1=IDD_DIALOG3
-Resource2=IDR_MAINFRAME
+ResourceCount=7
+Resource1=IDR_MAINFRAME
+Resource2=IDD_ABOUTBOX
 Class5=CAboutDlg
 Class6=CAddStudentDlg
-Resource3=IDD_DIALOG1
+Resource3=IDD_DIALOG3
 Class7=CSearchStudentByNo
-Resource4=IDD_DIALOG2
+Resource4=IDD_DIALOG4
 Class8=CSearchStudentByName
-Resource5=IDD_ABOUTBOX
+Resource5=IDD_DIALOG1
 Class9=CAscendOrDescendDlg
-Resource6=IDD_DIALOG4
+Resource6=IDD_DIALOG2
+Class10=CAffirmDel
+Resource7=IDD_DIALOG5
 
 [CLS:CHomework_StudentManagementApp]
 Type=0
@@ -49,7 +51,7 @@ ImplementationFile=Homework_StudentManagementView.cpp
 Filter=C
 BaseClass=CListView
 VirtualFilter=VWC
-LastObject=ID_PASS_PHYSICS
+LastObject=CHomework_StudentManagementView
 
 
 [CLS:CMainFrame]
@@ -260,4 +262,19 @@ BaseClass=CDialog
 Filter=D
 LastObject=CAscendOrDescendDlg
 VirtualFilter=dWC
+
+[DLG:IDD_DIALOG5]
+Type=1
+Class=CAffirmDel
+ControlCount=2
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+
+[CLS:CAffirmDel]
+Type=0
+HeaderFile=AffirmDel.h
+ImplementationFile=AffirmDel.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CAffirmDel
 

@@ -11,6 +11,7 @@
 #include "SearchStudentByNo.h"
 #include "SearchStudentByName.h"
 #include "AscendOrDescendDlg.h"
+#include "AffirmDel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -371,31 +372,45 @@ void CHomework_StudentManagementView::OnClick(NMHDR* pNMHDR, LRESULT* pResult)
 void CHomework_StudentManagementView::OnStudentDel() 
 {
 	// TODO: Add your command handler code here
-	CListCtrl& m_ListCtrl = GetListCtrl();
-
-	int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
-	if (nHeadNum==15) {
-		m_ListCtrl.DeleteColumn (14);
-	}
-
-
-	CHomework_StudentManagementDoc* doc = GetDocument();
-
+	CAffirmDel dlg;
+	
 	if (nIndex == -1) {
-		MessageBox("不能删除，没有选定！！");
+		MessageBox("不能删除，没有选定！！");		
+	}else{
+
+		
+		if (IDOK == dlg.DoModal()) {
+			CListCtrl& m_ListCtrl = GetListCtrl();
+
+			int nHeadNum = m_ListCtrl.GetHeaderCtrl()->GetItemCount();
+			if (nHeadNum==15) {
+				m_ListCtrl.DeleteColumn (14);
+			}
+
+
+			CHomework_StudentManagementDoc* doc = GetDocument();
+
+
+			if (nIndex>=0) {
+				POSITION pos = doc->m_stuObList.FindIndex(nIndex);
+
+				doc->m_stuObList.RemoveAt(pos);
+
+				UpdateListItemData();
+
+				//没有选定，设置为-1
+				nIndex=-1;
+			}
+
+		}
+
+
+
+
 	}
 
 
-	if (nIndex>=0) {
-		POSITION pos = doc->m_stuObList.FindIndex(nIndex);
 
-		doc->m_stuObList.RemoveAt(pos);
-
-		UpdateListItemData();
-
-		//没有选定，设置为-1
-		nIndex=-1;
-	}
 
 }
 

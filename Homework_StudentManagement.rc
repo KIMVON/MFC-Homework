@@ -299,6 +299,15 @@ BEGIN
     PUSHBUTTON      "降序",IDCANCEL,102,33,62,24
 END
 
+IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 137, 56
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "是否删除"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,7,18,53,19
+    PUSHBUTTON      "取消",IDCANCEL,77,18,53,19
+END
+
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -392,6 +401,14 @@ BEGIN
         RIGHTMARGIN, 180
         TOPMARGIN, 7
         BOTTOMMARGIN, 83
+    END
+
+    IDD_DIALOG5, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 130
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 49
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -94,6 +94,10 @@ SOURCE=.\AddStudentDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\AffirmDel.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\AscendOrDescendDlg.cpp
 # End Source File
 # Begin Source File
@@ -136,6 +140,10 @@ SOURCE=.\StdAfx.cpp
 # Begin Source File
 
 SOURCE=.\AddStudentDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AffirmDel.h
 # End Source File
 # Begin Source File
 
